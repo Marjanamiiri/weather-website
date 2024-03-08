@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script src="/scripts/scripts.js"></script>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+
+<body>
+    <div id="cursorOutline" class="cursor-outline default-cursor"></div>
+
+    <div class="date-time">
+        <p class="current-date" ></p>
+        <p class="current-time" style="text-align: right;"></p>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="cityInput" placeholder="Enter City:">
+        <br>
+        <button onclick="searchWeather()" class="search">
+            <img src="styles/search-icon-2044x2048-psdrpqwp.png" width="30px" height="30px">
+        </button>
+    </div>
+
+    <div class="weather-container">
+        <h1 class="city"></h1>
+        <img class="icon" alt="Weather Icon">
+        <h4 class="description"></h4>
+        <h4 class="temp"></h4>
+        <h4 class="humidity"></h4>
+        <h4 class="wind"></h4>
+        <h4 class="sunrise"></h4>
+        <h4 class="sunset"></h4>
+    </div>
+
+    </div>
+    <script src="/scripts/cursor.js"></script>
+</body>
+
+</html>
