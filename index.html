@@ -1,46 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherHub</title>
-
-    <!-- Style and CSS -->
     <link rel="stylesheet" href="/styles/styles.css">
-    <!-- Scripts -->
-    <script src="/scripts/scripts.js"></script>
+    <script src="/scripts/scripts.js" defer></script>
 </head>
-
 <body>
     <div id="cursorOutline" class="cursor-outline default-cursor"></div>
+    <header class="site-header">
+        <nav class="forecast-nav" aria-label="Forecast sections">
+            <button type="button" class="forecast-link active" data-view="current">Current</button>
+            <button type="button" class="forecast-link" data-view="hourly">Hourly</button>
+            <button type="button" class="forecast-link" data-view="7days">7 Days</button>
+            <button type="button" class="forecast-link" data-view="14days">14 Days</button>
+            <button type="button" class="forecast-link" data-view="weekend">Weekend</button>
+            <button type="button" class="forecast-link" data-view="monthly">Monthly Forecast</button>
+            <button type="button" class="forecast-link" data-view="condition">Condition</button>
+        </nav>
+        <div class="date-time">
+            <p class="current-date"></p>
+            <p class="current-time"></p>
+        </div>
+    </header>
+    <main class="app-shell">
+        <section class="top-panel">
+            <div class="search-container">
+                <div class="hero-copy">
+                    <p class="eyebrow">Live city forecast</p>
+                    <h1>WeatherHub</h1>
+                    <p class="subtitle">Search any city or detect your current location for an instant local weather snapshot.</p>
+                </div>
+                <label class="sr-only" for="cityInput">Search by city name</label>
+                <input type="text" id="cityInput" placeholder="Search by city name">
+                <div class="action-row">
+                    <button type="button" id="searchButton" class="search action-button">
+                        <img src="styles/search-icon-2044x2048-psdrpqwp.png" width="22" height="22" alt="">
+                        <span>Search</span>
+                    </button>
+                    <button type="button" id="locationButton" class="location action-button">
+                        <span>Use My Location</span>
+                    </button>
+                </div>
+                <p class="status-message" aria-live="polite"></p>
+            </div>
+        </section>
 
-    <div class="date-time">
-        <p class="current-date"></p>
-        <p class="current-time" style="text-align: right;"></p>
-    </div>
+        <section class="results-panel">
+            <div class="weather-card loading">
+                <div class="weather-overview">
+                    <div>
+                        <p class="label">Current city</p>
+                        <h2 class="city">Loading...</h2>
+                        <p class="description"></p>
+                    </div>
+                    <img class="icon" alt="Weather icon">
+                </div>
 
-    <div class="search-container">
-        <input type="text" id="cityInput" placeholder="Enter City:">
-        <br>
-        <button onclick="searchWeather()" class="search">
-            <img src="styles/search-icon-2044x2048-psdrpqwp.png" width="30px" height="30px">
-        </button>
-    </div>
+                <div class="temperature-row">
+                    <p class="temp"></p>
+                    <p class="feels-like"></p>
+                </div>
 
-    <div class="weather-container">
-        <h1 class="city"></h1>
-        <img class="icon" alt="Weather Icon">
-        <h4 class="description"></h4>
-        <h4 class="temp"></h4>
-        <h4 class="humidity"></h4>
-        <h4 class="wind"></h4>
-        <h4 class="sunrise"></h4>
-        <h4 class="sunset"></h4>
-    </div>
+                <div class="weather-visuals" aria-hidden="true">
+                    <div class="visual-pill visual-temp">
+                        <span class="visual-label">Now</span>
+                        <span class="visual-value temp-visual"></span>
+                    </div>
+                    <div class="visual-pill visual-condition">
+                        <span class="visual-label">Condition</span>
+                        <span class="visual-value condition-visual"></span>
+                    </div>
+                    <div class="visual-pulse"></div>
+                </div>
 
-    </div>
+                <div class="details-grid">
+                    <article class="detail-box">
+                        <p class="detail-label">Humidity</p>
+                        <p class="humidity"></p>
+                    </article>
+                    <article class="detail-box">
+                        <p class="detail-label">Wind</p>
+                        <p class="wind"></p>
+                    </article>
+                    <article class="detail-box">
+                        <p class="detail-label">Sunrise</p>
+                        <p class="sunrise"></p>
+                    </article>
+                    <article class="detail-box">
+                        <p class="detail-label">Sunset</p>
+                        <p class="sunset"></p>
+                    </article>
+                </div>
+
+                <div class="forecast-panel">
+                    <div class="forecast-panel-header">
+                        <p class="label view-label">Current</p>
+                        <p class="forecast-caption"></p>
+                    </div>
+                    <div class="forecast-content"></div>
+                </div>
+            </div>
+        </section>
+    </main>
     <script src="/scripts/cursor.js"></script>
 </body>
-
 </html>
